@@ -39,3 +39,5 @@ export const textInputProps = {
     label: "Enter your color",
   },
 };
+
+export const PARAGRAPH_TO_TYPE = "Enter your color";
