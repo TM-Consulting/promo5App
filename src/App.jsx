@@ -1,9 +1,16 @@
-import Outline from "./components/Outline";
-import { bootstrapButtonVariant, buttonTexts } from "./constants";
+import Category from "./containers/Category";
+
 const App = () => {
   return (
-    <div>
-      <Outline />
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <Category />
     </div>
   );
 };
