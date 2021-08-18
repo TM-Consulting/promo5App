@@ -1,16 +1,9 @@
-import Category from "./containers/Category";
+import Login from "./containers/Login";
 
 const App = () => {
   return (
-    <div
-      style={{
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Category />
+    <div>
+      <Login />
     </div>
   );
 };
