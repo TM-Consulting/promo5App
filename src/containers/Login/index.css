@@ -1,0 +1,26 @@
+.container div {
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+label {
+  color: red;
+}
+.submit-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}

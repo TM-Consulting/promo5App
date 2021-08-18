@@ -1,17 +1,21 @@
+import Login from "./containers/Login";
 import Category from "./containers/Category";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const App = () => {
   return (
-    <div
-      style={{
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Category />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Login />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/category">
+          <Category />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 

@@ -4,9 +4,21 @@ const index = ({
   type = textInputProps.default.type,
   placeholder = textInputProps.default.placeholder,
   onChange,
+  maxLength,
+  label,
+  name,
 }) => {
   return (
-    <Form.Control type={type} placeholder={placeholder} onChange={onChange} />
+    <div>
+      <Form.Label>{label}</Form.Label>
+      <Form.Control
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        onChange={onChange}
+        maxLength={maxLength}
+      />
+    </div>
   );
 };
 
