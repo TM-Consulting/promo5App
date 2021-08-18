@@ -43,4 +43,13 @@ export const textInputProps = {
   },
 };
 
+export const authUser = {
+  email: "othmane@gmail.com",
+  password: "123456",
+};
+export const credentialsState = {
+  error: " Credentials are incorrects",
+  success: "Congratulations",
+};
+
 export const PARAGRAPH_TO_TYPE = "Enter your color";

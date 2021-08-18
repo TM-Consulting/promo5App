@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import CustomInput from "../../components/CustomInput";
 import CustomButton from "../../components/CustomButton";
-import { textInputProps, buttonTexts } from "../../constants";
+import {
+  textInputProps,
+  buttonTexts,
+  credentialsState,
+  authUser,
+} from "../../constants";
+import { stringCompare } from "../../utils/stringUtils";
 import "./index.css";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [error, setError] = useState(false);
+  const [clickAction, setClickAction] = useState(false);
   const handleChange = (e) => {
     switch (e.target.name) {
       case textInputProps.email.name:
-        setEmail(e.target.value);
+        setCredentials({
+          ...credentials,
+          email: e.target.value,
+        });
         break;
       case textInputProps.password.name:
-        setPassword(e.target.value);
+        setCredentials({
+          ...credentials,
+          password: e.target.value,
+        });
         break;
       default:
         break;
@@ -28,19 +40,38 @@ const Login = () => {
     ...textInputProps.password,
     onChange: handleChange,
   };
+  const handleClick = () => {
+    if (
+      !stringCompare(credentials.email, authUser.email) ||
+      !stringCompare(credentials.password, authUser.password)
+    ) {
+      setError(true);
+      setClickAction(true);
+    } else {
+      setError(false);
+      setClickAction(true);
+    }
+  };
+  const showConfirmation = () =>
+    clickAction ? (
+      error ? (
+        <h2 className="error">{credentialsState.error}</h2>
+      ) : (
+        <h2 className="success">{credentialsState.success}</h2>
+      )
+    ) : (
+      ""
+    );
+
+  // conditional rendering
   return (
     <div className="container">
       <CustomInput {...emailProps} />
       <CustomInput {...passwordProps} />
       <div className="submit-btn">
-        <CustomButton text={buttonTexts.submit} />
+        <CustomButton text={buttonTexts.submit} onClick={handleClick} />
       </div>
-
-      <div>
-        <h2>informations</h2>
-        email: {email} <br></br>
-        password :{password}
-      </div>
+      {showConfirmation()}
     </div>
   );
 };
