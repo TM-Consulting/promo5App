@@ -1,22 +1,6 @@
-import Login from "./containers/Login";
-import Category from "./containers/Category";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from "react";
 const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Login />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/category">
-          <Category />
-        </Route>
-      </Switch>
-    </Router>
-  );
+  return <h1>welcome to the react app</h1>;
 };
 
 export default App;
